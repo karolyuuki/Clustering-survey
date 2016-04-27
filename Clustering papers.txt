@@ -76,3 +76,33 @@ Karoline Neves Bernardo
   
   5)Triangle Inequality
     S(pi,pk)<= S(pi,pj) + S(pj,pk)
+
+
+- Common Proximity Measures
+
+  1)Distance measures
+    The Minkowski Metric is the most commonly used, mostly of ratio scales.
+    (http://www.molmine.com/magma/images/distan6.gif)
+    r is the parameter, m is the dimensionality of  the data object, and xi and yi are the ith components of the x and y objects,
+    respectively.
+    *If r=2, is the Euclidean Distance
+    
+  2) Ordinal measures
+    They attribue a rank based on the similarity between the points. Most used with qualitative scales
+    
+  3) Similarity measures between binary vectors
+    These measures have values between 0 and 1. A value of 1 indicates two vectors that are completely similar, and a value of 0
+    indicates two vectors that are not similar at all.
+    For comparing two vectors(p and q) we have the following quantities:
+    M01 = Number of positions where p was 0 and q was 1
+    M10 = Number of positions where p was 1 and q was 0
+    M00 = Number of positions where p was 0 and q was 0
+    M11 = Number of positions where p was 1 and q was 1
+    
+    And for measures we will present two: Simple Match Coefficient and Jaccard Coefficient.
+    
+    SMC  = M11+M00/ (M01+M10+M00+M11)
+    
+    JC = M11/(M10+M01+M11)
+    
+    In SMC, all matches are being considered, while in Jaccard only the matches with 1s are being considered.
