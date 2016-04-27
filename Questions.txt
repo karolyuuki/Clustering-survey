@@ -1,0 +1,6 @@
+University of Tsukuba
+Directed Research in Computer Science
+Karoline Neves Bernardo
+
+1- K-means:
+  
