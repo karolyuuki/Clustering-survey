@@ -106,3 +106,57 @@ Karoline Neves Bernardo
     JC = M11/(M10+M01+M11)
     
     In SMC, all matches are being considered, while in Jaccard only the matches with 1s are being considered.
+
+
+
+- Clustering Techniques
+  
+  1)Center-Based Partitional clustering
+  
+    This type of techniques are based that a center point can represent a cluster.
+    
+    A) K-Means
+    
+      The K-means works with a simple algorithm that can be divided in the following steps:
+      1- Select K points as the inicial centroids
+      2- Assign all points to the closest centroid
+      3- Recompute the centroids for each cluster
+      4- Repeat steps 2 and 3 until the centroids didn't change
+      
+      This process usually converges to a local minimum. And the centroid is not an actual point in most cases, it's mostly
+      a mean of a group of points unlikely the K-medoid, who always have an actual point as its centroid.
+      
+      A problem: If the inicial centroids are poorly chosen the result of the clustering will not be good. And choosing randomly
+                can lead to bad inicial centroids choices.
+      One solution: Updating centroids incrementally
+                    Instead of just updating the centroids after all the points had been assigned, it would update every time
+                    a point is assigned to a cluster.
+                    Goal: Better accuracy and faster convergence
+                    Extra advantage: Doesn`t produces empty clusters.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  
