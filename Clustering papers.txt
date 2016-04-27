@@ -1,0 +1,78 @@
+University of Tsukuba
+Directed Research in compurter Science
+Karoline Neves Bernardo
+
+- What is clustering?
+  Cluster analysis groups objects based on the data describing the objects or their relationships. The main goal of clustering
+  is to group objects that are more similar to each other, and different from objects in other groups. Better clusters are the ones 
+  whose objects have more similarities withim themselves and a bigger difference with the others.
+  
+- Standardization
+  The objects are usually represented as points in a  multi-dimensional space, where each dimension represents an attribute that 
+  describes the object.
+  But this bring us into a problem. Sometimes the range of the values of different parameters is too different (Ex: one varies between
+  0 and 1, and other between 1000 and 10000). So the values need to be standartized, or the attirbute with higher values will have more
+  influence than other attributes.
+  
+  Approaches for stardardization
+  
+  Considering xi as the ith object, xij as the value of the jth attribute of the ith object and xij' as the standardized attribute 
+  value.
+  These approaches are executed for each attribute value.
+  
+  A) xij' = xij/max(i)|xij|
+    max(i) is the maximum value that the attribute can get, so all the values become between -1 and 1.
+    Caracteristics: - Is sensitive to outliers
+                    - May not produce good results if the attributes aren't uniformly distributed
+  
+  B) xij' = xij - uj/ dj
+    uj = The mean
+    dj = The standard deviation
+    If the data is uniformly distributed, most values will vary between -1 and 1
+    Caracteristics: - Is sensitive to outliers
+    
+  c) xij' = xij - uj/ djA
+    djA = Absolute deviation
+    Most attribute values will lie between -1 and 1
+    Caracteristics: - Is more robust in the presence of outliers
+    
+
+- Definitions of Cluster
+  
+  The are different definitions of what a cluster is and
+  
+  1) Well-separated Cluster
+    A cluster is a set of point such that any point is closer to every other point in the cluster then to any point out of it.
+    * In many sets, a point in the edge is closer to another cluster than to objects of its own.
+    
+  2) Center-based Cluser
+    A object in a cluster is closer to the center of a cluster than to the center of any other cluster.
+    
+  3) Contiguous Cluster
+    A point in a cluster is closer to one or more points in the cluster than to any point not in the cluster.
+    
+  4) Density-based Cluster
+    Is a dense region of points which is separated from other dense region by low density.
+    * Used when the clusters are irregular or intertwined and when noise and outliers are present.
+    
+  5) Similarity-based Center
+    A set f objects that are "similarity" and objects in other clusters are not "similar".
+    
+
+- Requirements on similarity measures
+
+  1)a) For dissimilarity: D(pi,pi)= 0
+      A point isn`t different from itself
+    b) For similarity : S(pi,pi)> max(pi,pj)
+      A point is more similar to itself than to any other point
+      
+  2)Simmetry
+    S(pi,pj)=S(pj,pi)
+    
+  3)Positivity
+    S(pi,pj)>=0 for all pi and pj
+    
+  4)S(pi,pj)=0 only if pi=pj
+  
+  5)Triangle Inequality
+    S(pi,pk)<= S(pi,pj) + S(pj,pk)
