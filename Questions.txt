@@ -2,5 +2,11 @@ University of Tsukuba
 Directed Research in Computer Science
 Karoline Neves Bernardo
 
-- Como implementar as definições de cluster? O programa receberiaum set de objetos com os clusters já feitos e veria em que definição esse cluster se encaixava?
+- Como implementar as definições de cluster? O programa receberiaum set de objetos com os clusters já feitos e veria em que definição
+esse cluster se encaixava?
+
+- Linha 153:
+  O ISODATA está incluido na parte de post procesing mas, pela maneira que ele é descrito, parece um processo completo a parte. Ele é 
+  sempre usado como post processing, ou é usado como metodo de clustering também?
+  
   
