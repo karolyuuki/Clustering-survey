@@ -171,4 +171,4 @@ Karoline Neves Bernardo
       - It's normally restricted to Euclidean spaces.
       - If the ideal shape of a cluster is convex, or the clusters have different sizes, it can mismatch them. 
       
-###K-medoid
+###2)K-medoid
