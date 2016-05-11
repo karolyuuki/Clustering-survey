@@ -2,5 +2,5 @@ University of Tsukuba
 Directed Research in Computer Science
 Karoline Neves Bernardo
 
-1- K-means:
+- Como implementar as definições de cluster? O programa receberiaum set de objetos com os clusters já feitos e veria em que definição esse cluster se encaixava?
   
