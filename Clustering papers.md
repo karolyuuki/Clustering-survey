@@ -69,21 +69,21 @@ Karoline Neves Bernardo
 
 # Requirements on similarity measures
 
-  1)a) For dissimilarity: D(pi,pi)= 0
-      A point isn`t different from itself
-    b) For similarity : S(pi,pi)> max(pi,pj)
-      A point is more similar to itself than to any other point
+  1)a) For dissimilarity: D(pi,pi)= 0  
+      A point isn`t different from itself  
+    b) For similarity : S(pi,pi)> max(pi,pj)  
+      A point is more similar to itself than to any other point  
       
-  2)Simmetry
-    S(pi,pj)=S(pj,pi)
+  2)Simmetry  
+    S(pi,pj)=S(pj,pi)  
     
-  3)Positivity
-    S(pi,pj)>=0 for all pi and pj
+  3)Positivity  
+    S(pi,pj)>=0 for all pi and pj  
     
-  4)S(pi,pj)=0 only if pi=pj
+  4)S(pi,pj)=0 only if pi=pj    
   
   5)Triangle Inequality
-    S(pi,pk)<= S(pi,pj) + S(pj,pk)
+    S(pi,pk)<= S(pi,pj) + S(pj,pk)  
 
 
 # Common Proximity Measures
@@ -121,7 +121,7 @@ Karoline Neves Bernardo
   
 ## Center-Based Partitional clustering
   
-    This type of techniques are based that a center point can represent a cluster.
+This type of techniques are based that a center point can represent a cluster.
     
 ### 1) K-Means
     
@@ -172,3 +172,93 @@ Karoline Neves Bernardo
       - If the ideal shape of a cluster is convex, or the clusters have different sizes, it can mismatch them. 
       
 ###2)K-medoid
+  Objective: Find a non-overlapping set of clusters, such as each cluster have one object that is more centrally located than all
+  the others with respect to some measure.
+  
+  Basic K-medoid algorithm:
+  
+  1)Select K initial objects, that will be the candidates for the medoids. And assign the other objecs for its closer medoid.
+  2)Calculate the distance of the medoid candidates with all the objects in its cluster. The sum of all distances will be the cost of 
+  this candidate. Then, one of the medoid candidates is chosen, and the cost of all the objects on its cluster is calculated. 
+  3)Select the configuration with lowest cost. If is a new configuration, the step 2 is done again.
+  4)Otherwise, each object is associated with the closest medoid, and stop.
+  
+  Characteristhics:
+  - Is not restricted to Euclidean spaces.
+  - More tolerant with outliers
+  - Trying all the objects as medoids makes it computationaly expensive.
+ 
+  
+###3)CLARANS
+    
+    
+    
+    
+    
+## Hierarchical Clustering
+
+Goal: Produce a hieranchical series of nested clusters, ranging from clusters of individual objects to one cluster that contains all objects.
+Characteristics:
+- Don't assume an specific number of clusters
+- Limited size of dataset that can be processed
+
+There is two basic approaches to generate a hierarchical clustering
+  a)Agglomerative: Starts with the points as individual clusters and merge the closest pair at each step
+  b)Divisive: Starts with one cluster and at each step split a cluster in two
+
+###Concepts
+    1)Proximity matrix
+    Is an m x m matrix containing all the similarities or dissimilarities between the objects.
+    If there is two objects xi and xj, on the ith row and jth collumn of the proximity matrix will contain the similarity or 
+    dissimilarity between xi and xj.
+    
+    2)Proximity graph
+    Is and weighted graph, based on the proximity matrix, where the nodes represent the objects and the edges represent the 
+    proximities between the nodes. Clustering is equivalent to breaking the graph into connected components.
+    
+### Divisive Algorithms
+
+####Minimum Spanning Tree(MST)
+
+  Is the divisive version of the agglomerative Single link. The MST algorithm works in the following steps:
+  
+  1) Compute a minimum spanning tree for the proximity graph.
+  2) Create a new cluster by breaking the link with the smallest similarity.
+  3) Repeat step 2 until only indivudual clusters remains.
+  
+### Agglomerative Algorithms
+
+Basic agglomerative algorithm
+
+1)Compute the proximity graph
+2)Merge the two most similar clusters
+3)Update the proximity graph to the new configuration
+4) Repeat 2 and 3 until only one cluster remains
+
+The bigger difference between the agglomerative algorithms is how they calculate the proximity of the clusters.
+
+#### MIN or Single Link
+  The proximity is defined by the bigger similarity between any two objects of the clusters.
+  Characteristics:  - Good to non-eliptical shaped clusters
+                    - Produces long chains
+                    - Sensitive to noise and outliers
+
+#### MAX or Complete Link
+  The proximity is defined by the two farest objects in the clusters. Considering that we have three clusters, if the most distant 
+  object of cluster 1 is more close to the most distant object of cluster 2, that to the one of cluster 3, Complete Link will merge 
+  clusters 1 and 2.
+  Characteristics:  - Less susceptible to to noise and outliers
+                    - Not good with convex shapes
+
+
+#### Group Average
+  The proximity is defined as the average o the proximities between the clusters.
+  p(c1,c2)= somatory(p(p1,p2)/size(c1)*size(c2)
+  p1 belongs to c1
+  p2 belongs to c2
+  
+####Wards Method
+  The proximity is defined by the distances between centroids. The centroids for all the clusters will be calculated and the merge 
+  that increases the deviation the minimum will be chosen.
+  Characteristics: - Can merge not that similar clusters before the more similar ones.
+  
