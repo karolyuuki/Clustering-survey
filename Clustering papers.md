@@ -6,12 +6,13 @@ Karoline Neves Bernardo
   Cluster analysis groups objects based on the data describing the objects or their relationships. The main goal of clustering
   is to group objects that are more similar to each other, and different from objects in other groups. Better clusters are the ones 
   whose objects have more similarities withim themselves and a bigger difference with the others.
+  Cluster analysis can be used in a variety of fields, as group related documents for browsing, find areas that are more susceptible to earthquakes, identifiying cancerous data, and many more.
   
 - Standardization
   The objects are usually represented as points in a  multi-dimensional space, where each dimension represents an attribute that 
   describes the object.
   But this bring us into a problem. Sometimes the range of the values of different parameters is too different (Ex: one varies between
-  0 and 1, and other between 1000 and 10000). So the values need to be standartized, or the attirbute with higher values will have more
+  0 and 1, and other between 1000 and 10000). So the values need to be standartized, else the attirbute with higher values will have more
   influence than other attributes.
   
   Approaches for stardardization
@@ -36,10 +37,13 @@ Karoline Neves Bernardo
     Most attribute values will lie between -1 and 1
     Caracteristics: - Is more robust in the presence of outliers
     
+  The main difference between the approaches B and C are the use of Standard and Absolute deviation. While  in Standard, the deviation is given by the square root of the total, on the Absolute, the deviation is calculed with absolute value, not considering the minus. So, if there is an outlier, it won't affect the result as much as in the Standard Deviation.
+  ![Absolute deviation's Formula](http://mrsgalgebra.pbworks.com/f/1280412776/MAD%20formula.JPG)
+  ![Standard Deviation's Formula](http://f.tqn.com/y/statistics/1/S/M/-/-/-/standarddev.GIF)
 
 - Definitions of Cluster
   
-  The are different definitions of what a cluster is and
+  The are different definitions of what a cluster is and they can be choosed based on the application.
   
   1) Well-separated Cluster
     A cluster is a set of point such that any point is closer to every other point in the cluster then to any point out of it.
@@ -55,8 +59,12 @@ Karoline Neves Bernardo
     Is a dense region of points which is separated from other dense region by low density.
     * Used when the clusters are irregular or intertwined and when noise and outliers are present.
     
+    The density can be defined as the the number of objects in the neighborhood of the object p, divided by the area of a circle (in a 2d case) with radius  ɛ. The neighborhood of the object(p) are all the other objects contained in a circle of radius  ɛ, with center on p. The status of high or low density will be given after the density for all the points being calculated.
+    We could cluster our points by saying that points that are nearby (contained in the same neighborhood) and have similar density value belong to the same cluster.
+    
   5) Similarity-based Center
-    A set f objects that are "similarity" and objects in other clusters are not "similar".
+    A set of objects that are "similar" and objects in other clusters are not "similar". 
+    Used mostly with more subjective attributes, where the metric is not well-defined.
     
 
 - Requirements on similarity measures
