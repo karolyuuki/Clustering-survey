@@ -142,29 +142,33 @@ Karoline Neves Bernardo
                     Goal: Better accuracy and faster convergence
                     Extra advantage: Doesn`t produces empty clusters.
       
+####Pre and Post processing
+     
+    - Pre-processing
+     Usually used to eliminate ouliers.
+     
+    - Post-processing
+     Post-processing is mostly used to "fix" the clusters that had been formed. Is consists basically of eliminate or merge small 
+     clusters, and splits bigger clusters.
+     
+       ISODATA
+       It's one of the most famous techniques for post-processing and is still used today, mainly in image processing. The ISODATA  
+       follows the following steps:
+       
+       1)Chooses the centroids in a way that guarantees they will be well separated. Proceeds as k-means.
+       
+       2)Clusters with "too few" objects are discarded. 
+        Removes the center and reassign the objects to other clusters.
+       
+       3)Clusters are merged or split:
+        a)If there are clusters with "too many" objects, clusters are split. 
+          The cluster with higher standard deviation in some attribute will be chosen.
+        b)If there are clusters with "too few" objects and their centers are close, clusters are merged.
       
+       4)Steps 1,2 and 3 are executed until the results are "acceptable" or until some predermined number of iteractions is exceeded. 
+       
+#### Limitations and problems      
+      - It's normally restricted to Euclidean spaces.
+      - If the ideal shape of a cluster is convex, or the clusters have different sizes, it can mismatch them. 
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-  
+###K-medoid
