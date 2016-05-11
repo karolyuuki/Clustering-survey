@@ -180,7 +180,7 @@ This type of techniques are based that a center point can represent a cluster.
   1)Select K initial objects, that will be the candidates for the medoids. And assign the other objecs for its closer medoid.
   2)Calculate the distance of the medoid candidates with all the objects in its cluster. The sum of all distances will be the cost of 
   this candidate. Then, one of the medoid candidates is chosen, and the cost of all the objects on its cluster is calculated. 
-  3)Select the configuration with lowest cost. If is a new configuration, the step 2 is done again.
+  3)Select the configuration with lowest cost. If is a new configuration, the step 2 is done again.  
   4)Otherwise, each object is associated with the closest medoid, and stop.
   
   Characteristhics:
@@ -203,8 +203,8 @@ Characteristics:
 - Limited size of dataset that can be processed
 
 There is two basic approaches to generate a hierarchical clustering
-  a)Agglomerative: Starts with the points as individual clusters and merge the closest pair at each step
-  b)Divisive: Starts with one cluster and at each step split a cluster in two
+  a)Agglomerative: Starts with the points as individual clusters and merge the closest pair at each step.
+  b)Divisive: Starts with one cluster and at each step split a cluster in two.
 
 ###Concepts
     1)Proximity matrix
@@ -222,40 +222,40 @@ There is two basic approaches to generate a hierarchical clustering
 
   Is the divisive version of the agglomerative Single link. The MST algorithm works in the following steps:
   
-  1) Compute a minimum spanning tree for the proximity graph.
-  2) Create a new cluster by breaking the link with the smallest similarity.
-  3) Repeat step 2 until only indivudual clusters remains.
+  1) Compute a minimum spanning tree for the proximity graph.  
+  2) Create a new cluster by breaking the link with the smallest similarity.  
+  3) Repeat step 2 until only indivudual clusters remains.  
   
 ### Agglomerative Algorithms
 
 Basic agglomerative algorithm
 
-1)Compute the proximity graph
-2)Merge the two most similar clusters
-3)Update the proximity graph to the new configuration
-4) Repeat 2 and 3 until only one cluster remains
+1)Compute the proximity graph  
+2)Merge the two most similar clusters  
+3)Update the proximity graph to the new configuration  
+4) Repeat 2 and 3 until only one cluster remains  
 
-The bigger difference between the agglomerative algorithms is how they calculate the proximity of the clusters.
+The bigger difference between the agglomerative algorithms is how they calculate the proximity of the clusters.  
 
 #### MIN or Single Link
-  The proximity is defined by the bigger similarity between any two objects of the clusters.
-  Characteristics:  - Good to non-eliptical shaped clusters
-                    - Produces long chains
-                    - Sensitive to noise and outliers
+  The proximity is defined by the bigger similarity between any two objects of the clusters.  
+  Characteristics:  - Good to non-eliptical shaped clusters  
+                    - Produces long chains  
+                    - Sensitive to noise and outliers  
 
 #### MAX or Complete Link
   The proximity is defined by the two farest objects in the clusters. Considering that we have three clusters, if the most distant 
   object of cluster 1 is more close to the most distant object of cluster 2, that to the one of cluster 3, Complete Link will merge 
-  clusters 1 and 2.
-  Characteristics:  - Less susceptible to to noise and outliers
-                    - Not good with convex shapes
+  clusters 1 and 2.  
+  Characteristics:  - Less susceptible to to noise and outliers   
+                    - Not good with convex shapes  
 
 
 #### Group Average
-  The proximity is defined as the average o the proximities between the clusters.
-  p(c1,c2)= somatory(p(p1,p2)/size(c1)*size(c2)
-  p1 belongs to c1
-  p2 belongs to c2
+  The proximity is defined as the average o the proximities between the clusters.  
+  p(c1,c2)= somatory(p(p1,p2)/size(c1)*size(c2)  
+  p1 belongs to c1  
+  p2 belongs to c2  
   
 ####Wards Method
   The proximity is defined by the distances between centroids. The centroids for all the clusters will be calculated and the merge 
